@@ -85,11 +85,60 @@ Soft Assertions:
    you the results screen.
 
 
+Class 2 --
+
+testNG XML: give you control over the execution of your whole project!
+
+<suite>
+    <test>
+
+        <classes>
+            <method>
+            </method>
+        </classes>
+
+        <package>
+
+        </package>
+
+    </test>
+</suite>
+
+@BeforeClass
+    - this annotation is used to execute the method only once before the execution of the class tag
+
+@AfterClass
+    - this annotation is used to execute the method only once after the execution of the class tag
+
+@BeforeTest:
+    - this annotation is used to execute the method only once before the execution of the test tag(the whole package)
+
+@AfterTest:
+    - this annotation is used to execute the method only once after the execution of the test tag(the whole package)
+
+@BeforeSuite:
+    - this annotation is used to execute the method only once before the execution of the suite tag(the whole project)
+
+@AfterSuite:
+    - this annotation is used to execute the method only once after the execution of the suite tag(the whole project)
 
 
+<suite>
+    <test>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="class01"></package>
+        </packages>
+    </test>
+</suite>
 
-
-
+- Whenever you run by groups, the @BeforeMethod and @AfterMethod do not run, because they are not under the tag group.
+(Because it will run strictly when you run under tag group. Only the method has that group tag name will run)
+- When we run by method name, @BeforeMethod and @AfterMethod runs
 
 
 
