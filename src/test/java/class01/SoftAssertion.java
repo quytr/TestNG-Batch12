@@ -14,7 +14,7 @@ import org.testng.asserts.SoftAssert;
 public class SoftAssertion {
     public static WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     public void OpenBrowser(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -26,7 +26,7 @@ public class SoftAssertion {
 
         SoftAssert soft = new SoftAssert();
 
-        String expectedText = "Invalid credentials 101";
+        String expectedText = "Invalid credentials";
 
         WebElement username = driver.findElement(By.id("txtUsername"));
         username.sendKeys("Admin");
@@ -42,7 +42,7 @@ public class SoftAssertion {
 
         // validate the display is true or not
         System.out.println("hello world");
-        displayed=false;
+//        displayed=false;
         soft.assertTrue(displayed);
 
         // check all assertions
@@ -57,7 +57,7 @@ public class SoftAssertion {
     }
 
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public  void  CloseBrowser(){
         driver.quit();
     }
